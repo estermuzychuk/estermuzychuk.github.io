@@ -1,23 +1,68 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CV | Ester Muzychuk</title>
+  <meta name="description" content="Curriculum vitae of Ester Muzychuk." />
   <style>
-    body { font-family: system-ui, -apple-system, Arial; max-width: 900px; margin: 70px auto; padding: 0 18px; line-height: 1.6; }
-    nav a { margin-right: 18px; text-decoration: none; color: #111; }
-    nav a:hover { text-decoration: underline; }
+    :root{
+      --bg:#fff; --text:#111; --muted:#555; --border:#e5e5e5; --card:#fafafa;
+      --shadow:0 10px 30px rgba(0,0,0,0.06); --radius:16px; --maxw:920px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+    .wrap{max-width:var(--maxw);margin:64px auto;padding:0 18px}
+    nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:28px}
+    nav a{color:var(--text);text-decoration:none;padding:8px 10px;border-radius:10px;border:1px solid transparent}
+    nav a:hover{border-color:var(--border);background:#f6f6f6}
+    nav a.active{border-color:var(--border);background:#f2f2f2}
+    h1{margin:0 0 10px;font-size:28px;letter-spacing:-0.02em}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+    .muted{color:var(--muted)}
+    a.inline{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+    .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-block;
+      border:1px solid var(--border);
+      background:#fff;
+      padding:10px 12px;
+      border-radius:12px;
+      text-decoration:none;
+      color:var(--text);
+    }
+    .btn:hover{background:#f6f6f6}
+    iframe{width:100%;height:1100px;border:1px solid var(--border);border-radius:12px;background:#fff}
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="cv.html">CV</a>
-    <a href="research.html">Research</a>
-  </nav>
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a class="active" href="cv.html">CV</a>
+      <a href="research.html">Research</a>
+    </nav>
 
-  <h1>CV</h1>
-  <p>pdf of cv will be linked here (e.g., <code>cv.pdf</code>).</p>
+    <h1>Curriculum Vitae</h1>
+    <div class="card">
+      <p class="muted" style="margin-top:0;">
+        Latest version as PDF. (Place your file in the repo as <code>cv.pdf</code>.)
+      </p>
+      <div class="btnrow">
+        <a class="btn" href="cv.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
+        <a class="btn" href="cv.pdf" download>Download</a>
+      </div>
+
+      <div style="margin-top:16px;">
+        <!-- Inline preview (works in most browsers) -->
+        <iframe src="cv.pdf" title="Ester Muzychuk CV PDF preview"></iframe>
+      </div>
+
+      <footer>
+        If the preview doesn’t load on mobile, use “Open CV (PDF)” above.
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
