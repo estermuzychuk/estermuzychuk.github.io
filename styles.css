@@ -198,3 +198,44 @@ html.dark .contact-item a:hover{
 @supports not (outline: 2px solid color-mix(in srgb, red, transparent)) {
   .theme-toggle:focus{ outline: 2px solid var(--link); }
 }
+
+/* CV page extras */
+.btnrow{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.btn{
+  display:inline-block;
+  border:1px solid var(--border);
+  background: var(--card);
+  padding:10px 12px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--text);
+}
+
+.btn:hover{
+  background: color-mix(in srgb, var(--card) 85%, var(--text) 6%);
+}
+
+@supports not (background: color-mix(in srgb, white, black)) {
+  .btn:hover{ background: rgba(0,0,0,0.04); }
+  html.dark .btn:hover{ background: rgba(255,255,255,0.06); }
+}
+
+.cv-frame{
+  width:100%;
+  height:1100px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background: var(--bg);
+}
+
+.cv-footer{
+  margin-top:18px;
+  color: var(--muted);
+  font-size:13px;
+}
