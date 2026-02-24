@@ -1,0 +1,200 @@
+/* styles.css */
+
+/* -------------------------
+   Theme tokens
+------------------------- */
+:root{
+  --bg:#ffffff;
+  --text:#111111;
+  --muted:#555555;
+  --border: rgba(0,0,0,0.12);
+  --card:#ffffff;
+  --link:#111111;
+  --radius:16px;
+  --maxw:920px;
+}
+
+html.dark{
+  --bg:#0b0f14;
+  --text:#e8edf2;
+  --muted:#b3bdc7;
+  --border: rgba(255,255,255,0.14);
+  --card:#121823;
+  --link:#7ab7ff;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.65;
+}
+
+a{ color:var(--link); }
+
+/* -------------------------
+   Layout
+------------------------- */
+.wrap{
+  max-width:var(--maxw);
+  margin:64px auto;
+  padding:0 18px;
+}
+
+/* -------------------------
+   Nav
+------------------------- */
+nav{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:28px;
+}
+
+nav a{
+  color:var(--link);
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid transparent;
+}
+
+nav a:hover{
+  border-color:var(--border);
+  background: color-mix(in srgb, var(--card) 80%, var(--text) 5%);
+}
+
+nav a.active{
+  border-color:var(--border);
+  background: color-mix(in srgb, var(--card) 85%, var(--text) 6%);
+}
+
+/* (Fallback if color-mix not supported) */
+@supports not (background: color-mix(in srgb, white, black)) {
+  nav a:hover{ background: rgba(0,0,0,0.04); }
+  html.dark nav a:hover{ background: rgba(255,255,255,0.06); }
+  nav a.active{ background: rgba(0,0,0,0.06); }
+  html.dark nav a.active{ background: rgba(255,255,255,0.08); }
+}
+
+/* -------------------------
+   Header
+------------------------- */
+.header{
+  display:grid;
+  grid-template-columns:96px 1fr;
+  gap:18px;
+  align-items:center;
+  margin-top:10px;
+}
+
+.photo{
+  width:96px;
+  height:96px;
+  border-radius:14px;
+  object-fit:cover;
+  border:1px solid var(--border);
+  background:#eee;
+}
+
+h1{ margin:0; font-size:34px; letter-spacing:-0.02em; }
+.subtitle{ margin:6px 0 0; color:var(--muted); }
+
+/* -------------------------
+   Grid / Cards
+------------------------- */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  margin-top:26px;
+}
+@media (min-width: 860px){
+  .grid{ grid-template-columns:1.2fr 0.8fr; }
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px 20px;
+}
+
+.card h2{ margin:0 0 10px; font-size:18px; }
+
+/* -------------------------
+   Contact (unboxed)
+------------------------- */
+.contact-panel{
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.contact-panel h2{ margin:0 0 10px; font-size:18px; }
+
+.contact-list{
+  list-style:none;
+  padding:0;
+  margin:10px 0 0;
+  display:grid;
+  gap:12px;
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.contact-item .icon{
+  width:18px;
+  flex:0 0 18px;
+  text-align:center;
+  opacity:0.7;
+}
+
+.contact-item a{
+  color: var(--text);
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,0,0,0.18);
+}
+html.dark .contact-item a{
+  border-bottom-color: rgba(255,255,255,0.22);
+}
+
+.contact-item a:hover{
+  border-bottom-color: rgba(0,0,0,0.6);
+}
+html.dark .contact-item a:hover{
+  border-bottom-color: rgba(255,255,255,0.65);
+}
+
+/* -------------------------
+   Theme toggle button
+------------------------- */
+.theme-toggle{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+.theme-toggle:focus{
+  outline: 2px solid color-mix(in srgb, var(--link) 50%, transparent);
+  outline-offset: 2px;
+}
+@supports not (outline: 2px solid color-mix(in srgb, red, transparent)) {
+  .theme-toggle:focus{ outline: 2px solid var(--link); }
+}
