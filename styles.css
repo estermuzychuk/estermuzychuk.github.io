@@ -239,3 +239,12 @@ html.dark .contact-item a:hover{
   color: var(--muted);
   font-size:13px;
 }
+
+/* Bio links */
+.card a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.card a:hover{
+  opacity: 0.85;
+}
